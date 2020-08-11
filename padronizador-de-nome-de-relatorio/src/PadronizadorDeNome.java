@@ -2,9 +2,11 @@ import java.io.File;
 
 public class PadronizadorDeNome {
 
-	public void executa(String[] arquivos) {
+	public void executa(String caminhaDaPasta) {
+		
+		File diretorio = new File(caminhaDaPasta);
 
-		for (String arquivo : arquivos) {
+		for (String arquivo : diretorio.list()) {
 
 			String nome = verificaNomeRelatorio(arquivo);
 			String numero = verificaNumeroFilial(arquivo);
