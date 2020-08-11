@@ -1,10 +1,12 @@
 import java.io.File;
 
 public class PadronizadorDeNome {
+	
+	private String diretorioBase = "c:\\home\\";
 
-	public void executa(String caminhaDaPasta) {
+	public void executa() {
 		
-		File diretorio = new File(caminhaDaPasta);
+		File diretorio = new File(diretorioBase);
 
 		for (String arquivo : diretorio.list()) {
 
@@ -19,9 +21,9 @@ public class PadronizadorDeNome {
 
 	private void alteraNomeDeArquivo(String nomeOriginal, String nome, String numero, String extensao) {
 
-		String novoNomeArquivo = "c:\\home\\" + nome + ".f" + numero + extensao;
+		String novoNomeArquivo = diretorioBase + nome + ".f" + numero + extensao;
 
-		File file = new File("c:\\home\\" + nomeOriginal);
+		File file = new File(diretorioBase + nomeOriginal);
 
 		file.renameTo(new File(novoNomeArquivo));
 

@@ -5,7 +5,7 @@ public class TestPadronizadorDeNome {
 		
 		PadronizadorDeNome padronizador = new PadronizadorDeNome();		
 		
-		padronizador.executa("c:\\home\\");
+		padronizador.executa();
 		
 	}
 
