@@ -1,11 +1,11 @@
 import java.io.File;
 
 public class PadronizadorDeNome {
-	
-	private String diretorioBase = "c:\\home\\";
+
+	private String diretorioBase = "c:\\home\\usuario\\projetos\\relatoriosdiarios\\recebidos\\";
 
 	public void executa() {
-		
+
 		File diretorio = new File(diretorioBase);
 
 		for (String arquivo : diretorio.list()) {
@@ -13,6 +13,8 @@ public class PadronizadorDeNome {
 			String nome = verificaNomeRelatorio(arquivo);
 			String numero = verificaNumeroFilial(arquivo);
 			String extensao = verificaExtensao(arquivo);
+
+			System.out.println(nome + " " + numero + " " + extensao);
 
 			alteraNomeDeArquivo(arquivo, nome, numero, extensao);
 		}
@@ -30,7 +32,17 @@ public class PadronizadorDeNome {
 	}
 
 	private String verificaExtensao(String arquivo) {
-		return arquivo.substring(arquivo.length() - 4, arquivo.length());
+
+		String ext = arquivo.substring(arquivo.length() - 3, arquivo.length());
+		
+		System.out.println(ext);
+
+		if (ext.matches("[a-z]*")) {
+			return "." + ext;
+		} else {
+			return "";
+		}
+
 	}
 
 	private String verificaNumeroFilial(String arquivo) {
