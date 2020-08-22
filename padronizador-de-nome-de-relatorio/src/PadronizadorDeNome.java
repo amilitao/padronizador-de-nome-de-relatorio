@@ -10,9 +10,9 @@ public class PadronizadorDeNome {
 
 		for (String arquivo : diretorio.list()) {
 
-			String nome = verificaNomeRelatorio(arquivo);
-			String numero = verificaNumeroFilial(arquivo);
-			String extensao = verificaExtensao(arquivo);
+			String nome = extraiNomeRelatorio(arquivo);
+			String numero = extraiNumeroFilial(arquivo);
+			String extensao = extraiExtensao(arquivo);
 
 			alteraNomeDeArquivo(arquivo, nome, numero, extensao);
 		}
@@ -29,7 +29,7 @@ public class PadronizadorDeNome {
 
 	}
 
-	private String verificaExtensao(String arquivo) {
+	private String extraiExtensao(String arquivo) {
 
 		String ext = arquivo.substring(arquivo.length() - 3, arquivo.length());
 
@@ -41,7 +41,7 @@ public class PadronizadorDeNome {
 
 	}
 
-	private String verificaNumeroFilial(String arquivo) {
+	private String extraiNumeroFilial(String arquivo) {
 
 		if (arquivo.contains("f")) {
 			return arquivo.substring(arquivo.indexOf("f") + 1, arquivo.indexOf("f") + 4);
@@ -51,7 +51,7 @@ public class PadronizadorDeNome {
 
 	}
 
-	private String verificaNomeRelatorio(String arquivo) {
+	private String extraiNomeRelatorio(String arquivo) {
 		return arquivo.substring(0, arquivo.indexOf("."));
 	}
 
